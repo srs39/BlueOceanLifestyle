@@ -1,12 +1,11 @@
 <resources>
     <string name="app_name">Blue Ocean Lifestyle</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_product">ProductActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-
+    <string name="enter_button">Enter</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="systolic">Systolic</string>
+    <string name="diastolic">Diastolic</string>
+    <string name="b_p_reminder">Reminder:CBD can help lower your blood pressure naturally, but it is still important to talk to your Primary Care Physician before starting a CBD regimen.</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
