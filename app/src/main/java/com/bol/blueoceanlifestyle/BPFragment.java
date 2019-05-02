@@ -15,4 +15,20 @@ public class BPFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_b, container,false);
     }
+
+    public String getDate(){
+        return "date";
+    }
+
+    public String getTime(){
+        return "time";
+    }
+
+    public int getSystolic(){
+        return 1;
+    }
+
+    public int getDiastolic(){
+        return 1;
+    }
 }

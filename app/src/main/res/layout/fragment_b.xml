@@ -1,15 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context= ".BPFragment">
+    tools:context=".BPFragment">
 
-    <TextView
+    <EditText
+        android:id="@+id/bp_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Blood Pressure Chart"
-        android:textSize="30sp" />
+        android:ems="3"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/date"
+        android:inputType="date" />
 
-</RelativeLayout>
+    <EditText
+        android:id="@+id/bp_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="3"
+        android:layout_marginTop="16dp"
+        android:hint="@string/time"
+        android:inputType="time" />
+
+    <EditText
+        android:id="@+id/bp_sys"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="4"
+        android:layout_marginTop="16dp"
+        android:hint="@string/systolic"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/bp_dia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="4"
+        android:layout_marginTop="16dp"
+        android:hint="@string/diastolic"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/bp_enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/enter_button"
+        android:background="@color/colorPrimary"/>
+</LinearLayout>
