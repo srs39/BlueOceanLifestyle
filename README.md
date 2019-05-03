@@ -34,4 +34,10 @@ Contact
 
 Products available
 
+-newly added products/items currently on sale
 -list of products currently available 
+-some stores carry different products depending on location
+-list stores that carry Low-THC & THC Free products
+-list stores that are strictly THC Free
+-choose your store
+-call for immediate availability of product
