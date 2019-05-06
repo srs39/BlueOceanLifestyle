@@ -6,34 +6,35 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_bp"
             android:icon="@drawable/ic_blood_pressure"
-            android:title="Blood Pressure"/>
+            android:title="@string/nav_bp"/>
 
         <item android:id="@+id/nav_mood"
             android:icon="@drawable/ic_mood"
-            android:title="Mood"/>
+            android:title="@string/nav_mood"/>
 
         <item android:id="@+id/nav_symptoms"
             android:icon="@drawable/ic_symptoms"
-            android:title="Symptoms"/>
+            android:title="@string/nav_symptoms"/>
 
         <item android:id="@+id/nav_dosage"
             android:icon="@drawable/ic_dosage"
-            android:title="Dosage"/>
+            android:title="@string/nav_dosage"/>
 
         <item android:id="@+id/nav_product"
             android:icon="@drawable/ic_product"
-            android:title="Products"/>
+            android:title="@string/nav_product"/>
 
         <item android:id="@+id/nav_usage"
             android:icon="@drawable/ic_usage_directions"
-            android:title="Usage and Directions"/>
+            android:title="@string/nav_usage"/>
+
         <item android:id="@+id/nav_cal"
             android:icon="@drawable/ic_calender"
-            android:title="Calender"/>
+            android:title="@string/nav_calender"/>
 
         <item android:id="@+id/nav_contact"
             android:icon="@drawable/ic_contact"
-            android:title="Contact"/>
+            android:title="@string/nav_contact"/>
 
     </group>
 </menu>

@@ -4,6 +4,14 @@
     <string name="enter_button">Enter</string>
     <string name="disclaimer">* These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</string>
     <string name="edit_button">Edit</string>
+    <string name="nav_mood">Mood</string>
+    <string name="nav_bp">Blood Pressure</string>
+    <string name="nav_calender">Calender</string>
+    <string name="nav_dosage">Dosage</string>
+    <string name="nav_product">Product</string>
+    <string name="nav_symptoms">Symptoms</string>
+    <string name="nav_usage">Usage and Directions</string>
+    <string name="nav_contact">Contact</string>
 
     <!--strings for bpFragment -->
     <string name="date">Date</string>
@@ -16,5 +24,6 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_calender">CalenderActivity</string>
+
 
 </resources>
