@@ -1,6 +1,7 @@
 package com.bol.cbdstatstracker;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.ContentValues;
@@ -20,7 +21,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_USAGE = "usage";
     private static final String KEY_ID = "id";
     private static final String KEY_DATE = "date";
-    private static final String KEY_TIME = "time";
     private static final String KEY_SYSTOLIC = "systolic";
     private static final String KEY_DIASTOLIC = "diastolic";
     private static final String KEY_SOLUTION = "tinctureOrSolution";
@@ -37,8 +37,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_SYMPTOM= "symptom";
     private static final String KEY_SEVERITY = "severity";
 
-    private static final String CREATE_BP_TABLE = "CREATE TABLE " + TABLE_BP + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_DATE + " TEXT, "
-            + KEY_TIME + " TEXT, " + KEY_DIASTOLIC + " INTEGER, " + KEY_SYSTOLIC + "INTEGER )";
+    private static final String CREATE_BP_TABLE = "CREATE TABLE " + TABLE_BP + "(" + KEY_DATE + " TEXT PRIMARY KEY, "
+             + KEY_DIASTOLIC + " INTEGER, " + KEY_SYSTOLIC + " INTEGER )";
     private static final String CREATE_MOOD_TABLE = "CREATE TABLE " + TABLE_MOOD + "(" +KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_DATE + " INTEGER, " + KEY_ELEVATED + "TEXT, " + KEY_NORMAL + "TEXT, " +
             KEY_DEPRESSED + "TEXT, " + KEY_ANXIETY + " INTEGER, " + KEY_IRRITABLILITY +" INTEGER, " + KEY_WEIGHT + " INTEGER, " + KEY_SLEEP + " INTEGER"+ ")";
 
@@ -60,15 +60,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean addBPData(String date, String time, int dia, int sys){
+    public boolean addBPData(int dia, int sys){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(KEY_DATE, date);
-        contentValues.put(KEY_TIME, time);
+        contentValues.put(KEY_DATE, "datetime(now, local)");
         contentValues.put(KEY_DIASTOLIC, dia);
         contentValues.put(KEY_SYSTOLIC, sys);
 
-        Log.d(TAG, "addData: Adding " + date + " " + time + " to " + TABLE_BP);
+        Log.d(TAG, "addData: Adding " + dia + " " + sys +  " to " + TABLE_BP);
 
         long result = db.insert(TABLE_BP, null, contentValues);
 
@@ -80,5 +79,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public Cursor getBPData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_BP;
+        Cursor data = db.rawQuery(query, null);
+        return data;
+    }
+
+
+
 
 }
+
+
+
+

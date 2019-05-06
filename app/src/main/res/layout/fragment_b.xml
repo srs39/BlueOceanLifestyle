@@ -12,24 +12,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/bp_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
-            android:width="90dp"
-            android:hint="@string/date"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/bp_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:width="90dp"
-            android:hint="@string/time"
-            android:inputType="text" />
 
         <EditText
             android:id="@+id/bp_sys"
@@ -44,24 +26,32 @@
             android:id="@+id/bp_dia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
             android:width="90dp"
             android:hint="@string/diastolic"
             android:inputType="number" />
-    </LinearLayout>
-
-
         <Button
             android:id="@+id/bp_enter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/bp_textbox_layout"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:background="@color/colorPrimary"
             android:text="@string/enter_button" />
+    </LinearLayout>
+
+<ListView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/bp_textbox_layout"
+    android:id="@+id/bp_data_list"
+    android:layout_marginTop="8dp"
+    >
+
+</ListView>
+
 
 
 </RelativeLayout>
