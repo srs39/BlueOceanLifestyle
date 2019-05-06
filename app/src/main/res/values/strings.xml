@@ -1,9 +1,11 @@
 <resources>
-
+    <!--strings used across app-->
     <string name="app_name">CBD Stats Tracker</string>
+    <string name="enter_button">Enter</string>
+    <string name="disclaimer">* These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</string>
+    <string name="edit_button">Edit</string>
 
     <!--strings for bpFragment -->
-    <string name="enter_button">Enter</string>
     <string name="date">Date</string>
     <string name="time">Time</string>
     <string name="systolic">Systolic</string>
@@ -13,5 +15,6 @@
     <!--strings for mainActivity-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_calender">CalenderActivity</string>
 
 </resources>

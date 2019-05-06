@@ -27,6 +27,9 @@
         <item android:id="@+id/nav_usage"
             android:icon="@drawable/ic_usage_directions"
             android:title="Usage and Directions"/>
+        <item android:id="@+id/nav_cal"
+            android:icon="@drawable/ic_calender"
+            android:title="Calender"/>
 
         <item android:id="@+id/nav_contact"
             android:icon="@drawable/ic_contact"
