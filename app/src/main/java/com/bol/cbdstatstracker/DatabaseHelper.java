@@ -1,8 +1,12 @@
-package com.bol.blueoceanlifestyle;
+package com.bol.cbdstatstracker;
 
-/*import android.content.Context;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.content.ContentValues;
+import android.util.Log;
+
+import static android.support.constraint.Constraints.TAG;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -14,6 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_DOSAGE = "dosageInfo";
     private static final String TABLE_SYMPTOMS = "symptoms";
     private static final String TABLE_USAGE = "usage";
+    private static final String KEY_ID = "id";
     private static final String KEY_DATE = "date";
     private static final String KEY_TIME = "time";
     private static final String KEY_SYSTOLIC = "systolic";
@@ -25,30 +30,55 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_NORMAL = "normal";
     private static final String KEY_DEPRESSED = "depressed";
     private static final String KEY_ANXIETY = "anxiety";
+    private static final String KEY_IRRITABLILITY = "irritablility";
     private static final String KEY_WEIGHT= "weight";
     private static final String KEY_SLEEP= "sleepDuration";
     private static final String KEY_WEEK= "weekNum";
     private static final String KEY_SYMPTOM= "symptom";
     private static final String KEY_SEVERITY = "severity";
 
-    public DatabaseHandler(Context context){
+    private static final String CREATE_BP_TABLE = "CREATE TABLE " + TABLE_BP + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_DATE + " TEXT, "
+            + KEY_TIME + " TEXT, " + KEY_DIASTOLIC + " INTEGER, " + KEY_SYSTOLIC + "INTEGER )";
+    private static final String CREATE_MOOD_TABLE = "CREATE TABLE " + TABLE_MOOD + "(" +KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_DATE + " INTEGER, " + KEY_ELEVATED + "TEXT, " + KEY_NORMAL + "TEXT, " +
+            KEY_DEPRESSED + "TEXT, " + KEY_ANXIETY + " INTEGER, " + KEY_IRRITABLILITY +" INTEGER, " + KEY_WEIGHT + " INTEGER, " + KEY_SLEEP + " INTEGER"+ ")";
+
+    public DatabaseHelper(Context context){
         super(context,DATABASE_NAME, null, DATABASE_VERSION );
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_BP_TABLE = "CREATE TABLE " + TABLE_BP + "(" + KEY_DATE + " INTEGER PRIMARY KEY, "
-                + KEY_TIME + " INTEGER, " + KEY_DIASTOLIC + " INTEGER, " + KEY_SYSTOLIC + "INTEGER )";
         db.execSQL(CREATE_BP_TABLE);
+        db.execSQL(CREATE_MOOD_TABLE);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+ TABLE_BP);
+        db.execSQL("DROP TABLE IF EXISTS "+ TABLE_MOOD);
         onCreate(db);
 
     }
 
-    void addBP(){
+    public boolean addBPData(String date, String time, int dia, int sys){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(KEY_DATE, date);
+        contentValues.put(KEY_TIME, time);
+        contentValues.put(KEY_DIASTOLIC, dia);
+        contentValues.put(KEY_SYSTOLIC, sys);
 
+        Log.d(TAG, "addData: Adding " + date + " " + time + " to " + TABLE_BP);
+
+        long result = db.insert(TABLE_BP, null, contentValues);
+
+        //if date as inserted incorrectly it will return -1
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
+        }
     }
-}*/
+
+
+}

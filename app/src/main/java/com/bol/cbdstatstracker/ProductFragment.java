@@ -1,4 +1,4 @@
-package com.bol.blueoceanlifestyle;
+package com.bol.cbdstatstracker;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,11 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class MoodFragment extends Fragment {
+
+public class ProductFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_mood, container,false);
+        return inflater.inflate(R.layout.fragment_product, container,false);
     }
 }

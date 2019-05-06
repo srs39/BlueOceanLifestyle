@@ -1,4 +1,4 @@
-package com.bol.blueoceanlifestyle;
+package com.bol.cbdstatstracker;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

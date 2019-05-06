@@ -1,4 +1,4 @@
-package com.bol.blueoceanlifestyle;
+package com.bol.cbdstatstracker;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
