@@ -1,5 +1,5 @@
 package com.bol.cbdstatstracker;
-
+import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,7 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import com.bol.cbdstatstracker.ui.BP;
+
+import java.util.ArrayList;
 
 
 public class BPFragment extends Fragment {
@@ -23,6 +28,7 @@ public class BPFragment extends Fragment {
     private String eTime;
     private String eDiastolic;
     private String eSystolic;
+    private ArrayList<BP> bpArray = new ArrayList<>();
 
 
 
@@ -52,6 +58,14 @@ public class BPFragment extends Fragment {
             }
         });
 
+        Cursor savedBPData = mDatabaseHelper.getBPData();
+        while (savedBPData.moveToNext()){
+            BP temp = new BP(savedBPData.getString(0),savedBPData.getString(1), savedBPData.getString(2));
+            bpArray.add(temp);
+        }
+        BPListAdapter adapter = new BPListAdapter(this.getContext(), R.layout.adapter_view_layout, bpArray);
+        ListView mListView = bpView.findViewById(R.id.bp_data_list);
+        mListView.setAdapter(adapter);
         return bpView ;
     }
 
