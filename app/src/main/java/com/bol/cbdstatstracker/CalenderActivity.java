@@ -16,7 +16,7 @@ public class CalenderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calender);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        setTitle(R.string.nav_calender);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

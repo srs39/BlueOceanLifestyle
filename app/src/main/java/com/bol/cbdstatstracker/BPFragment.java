@@ -1,4 +1,5 @@
 package com.bol.cbdstatstracker;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ public class BPFragment extends Fragment {
         diastolic = bpView.findViewById(R.id.bp_dia);
         systolic = bpView.findViewById(R.id.bp_sys);
         initDBHelper();
+        getActivity().setTitle(R.string.nav_bp);
         enterButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -52,8 +54,11 @@ public class BPFragment extends Fragment {
                     int iDiastolic = Integer.parseInt(eDiastolic);
                     int iSystolic = Integer.parseInt(eSystolic);
                    addData( iDiastolic, iSystolic);
+
                     //toastMessage("yay!");
                 }
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.detach(BPFragment.this).attach(BPFragment.this).commit();
 
             }
         });

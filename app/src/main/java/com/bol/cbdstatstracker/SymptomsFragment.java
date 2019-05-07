@@ -11,6 +11,7 @@ public class SymptomsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle(R.string.nav_symptoms);
         return inflater.inflate(R.layout.fragment_symptoms, container,false);
     }
 }

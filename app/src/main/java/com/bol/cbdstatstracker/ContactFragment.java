@@ -13,6 +13,7 @@ public class ContactFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle(R.string.nav_contact);
         return inflater.inflate(R.layout.fragment_contact, container,false);
     }
 }

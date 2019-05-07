@@ -12,6 +12,7 @@ public class UsageFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle(R.string.nav_usage);
         return inflater.inflate(R.layout.fragment_usage, container,false);
     }
 }

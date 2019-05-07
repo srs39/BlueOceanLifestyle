@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.content.ContentValues;
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static android.support.constraint.Constraints.TAG;
@@ -39,7 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_SYMPTOM= "symptom";
     private static final String KEY_SEVERITY = "severity";
 
-    private static final String CREATE_BP_TABLE = "CREATE TABLE " + TABLE_BP + "(" + KEY_DATE + " TEXT, "
+    private static final String CREATE_BP_TABLE = "CREATE TABLE " + TABLE_BP + "(" + KEY_DATE + " TEXT PRIMARY KEY, "
              + KEY_DIASTOLIC + " INTEGER, " + KEY_SYSTOLIC + " INTEGER )";
     private static final String CREATE_MOOD_TABLE = "CREATE TABLE " + TABLE_MOOD + "(" +KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_DATE + " INTEGER, " + KEY_ELEVATED + "TEXT, " + KEY_NORMAL + "TEXT, " +
             KEY_DEPRESSED + "TEXT, " + KEY_ANXIETY + " INTEGER, " + KEY_IRRITABLILITY +" INTEGER, " + KEY_WEIGHT + " INTEGER, " + KEY_SLEEP + " INTEGER"+ ")";
@@ -63,9 +64,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public boolean addBPData(int dia, int sys){
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY hh:mm:ss a");
+        String date = sdf.format(new Date());
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(KEY_DATE, new Date().getTime());
+        contentValues.put(KEY_DATE, date);
         contentValues.put(KEY_DIASTOLIC, dia);
         contentValues.put(KEY_SYSTOLIC, sys);
 
